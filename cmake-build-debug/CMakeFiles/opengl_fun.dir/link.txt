@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/opengl_fun.dir/main.cpp.o -o opengl_fun 
