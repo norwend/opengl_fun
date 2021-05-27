@@ -85,6 +85,9 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, nullptr);
 
+	// TODO: Fix the shaders!!!
+	// Instead of drawing a white triangle, it doesn't show anything at all, even errors
+
 	std::string vertex_shader =
         "#version 130\n"
         "\n"
