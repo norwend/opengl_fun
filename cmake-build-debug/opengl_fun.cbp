@@ -5,7 +5,7 @@
 		<Option title="opengl_fun"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug"/>
@@ -37,9 +37,9 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="opengl_fun">
-				<Option output="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/opengl_fun" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug"/>
+			<Target title="opengl-fun">
+				<Option output="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/opengl-fun" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 opengl_fun"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 opengl-fun"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="opengl_fun/fast">
-				<Option output="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/opengl_fun" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug"/>
+			<Target title="opengl-fun/fast">
+				<Option output="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/opengl-fun" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,18 +75,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 opengl_fun/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 opengl-fun/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/stepan/Документы/cpp/opengl-fun/main.cpp">
-			<Option target="opengl_fun"/>
+		<Unit filename="/home/stepan/Документы/cpp/opengl-fun/src/main.cpp">
+			<Option target="opengl-fun"/>
 		</Unit>
 		<Unit filename="/home/stepan/Документы/cpp/opengl-fun/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/stepan/Документы/cpp/opengl-fun/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

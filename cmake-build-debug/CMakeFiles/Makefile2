@@ -54,10 +54,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /var/lib/snapd/snap/clion/149/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /var/lib/snapd/snap/clion/151/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /var/lib/snapd/snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
+RM = /var/lib/snapd/snap/clion/151/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -72,46 +72,64 @@ CMAKE_BINARY_DIR = /home/stepan/Документы/cpp/opengl-fun/cmake-build-de
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/opengl_fun.dir/all
+all: src/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: src/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/opengl_fun.dir/clean
+clean: src/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/opengl_fun.dir
+# Directory level rules for directory src
+
+# Recursive "all" directory target.
+src/all: src/CMakeFiles/opengl-fun.dir/all
+
+.PHONY : src/all
+
+# Recursive "preinstall" directory target.
+src/preinstall:
+
+.PHONY : src/preinstall
+
+# Recursive "clean" directory target.
+src/clean: src/CMakeFiles/opengl-fun.dir/clean
+
+.PHONY : src/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/opengl-fun.dir
 
 # All Build rule for target.
-CMakeFiles/opengl_fun.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/opengl_fun.dir/build.make CMakeFiles/opengl_fun.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/opengl_fun.dir/build.make CMakeFiles/opengl_fun.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target opengl_fun"
-.PHONY : CMakeFiles/opengl_fun.dir/all
+src/CMakeFiles/opengl-fun.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/opengl-fun.dir/build.make src/CMakeFiles/opengl-fun.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/opengl-fun.dir/build.make src/CMakeFiles/opengl-fun.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target opengl-fun"
+.PHONY : src/CMakeFiles/opengl-fun.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/opengl_fun.dir/rule: cmake_check_build_system
+src/CMakeFiles/opengl-fun.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/opengl_fun.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/opengl-fun.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/opengl_fun.dir/rule
+.PHONY : src/CMakeFiles/opengl-fun.dir/rule
 
 # Convenience name for target.
-opengl_fun: CMakeFiles/opengl_fun.dir/rule
+opengl-fun: src/CMakeFiles/opengl-fun.dir/rule
 
-.PHONY : opengl_fun
+.PHONY : opengl-fun
 
 # clean rule for target.
-CMakeFiles/opengl_fun.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/opengl_fun.dir/build.make CMakeFiles/opengl_fun.dir/clean
-.PHONY : CMakeFiles/opengl_fun.dir/clean
+src/CMakeFiles/opengl-fun.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/opengl-fun.dir/build.make src/CMakeFiles/opengl-fun.dir/clean
+.PHONY : src/CMakeFiles/opengl-fun.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

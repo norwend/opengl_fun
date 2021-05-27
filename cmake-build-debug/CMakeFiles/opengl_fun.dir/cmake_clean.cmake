@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/opengl_fun.dir/main.cpp.o"
+  "CMakeFiles/opengl_fun.dir/src/main.cpp.o"
   "opengl_fun"
   "opengl_fun.pdb"
 )

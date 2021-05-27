@@ -76,27 +76,27 @@ include CMakeFiles/opengl_fun.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/opengl_fun.dir/flags.make
 
-CMakeFiles/opengl_fun.dir/main.cpp.o: CMakeFiles/opengl_fun.dir/flags.make
-CMakeFiles/opengl_fun.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/opengl_fun.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_fun.dir/main.cpp.o -c /home/stepan/Документы/cpp/opengl-fun/main.cpp
+CMakeFiles/opengl_fun.dir/src/main.cpp.o: CMakeFiles/opengl_fun.dir/flags.make
+CMakeFiles/opengl_fun.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/opengl_fun.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/opengl_fun.dir/src/main.cpp.o -c /home/stepan/Документы/cpp/opengl-fun/src/main.cpp
 
-CMakeFiles/opengl_fun.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_fun.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stepan/Документы/cpp/opengl-fun/main.cpp > CMakeFiles/opengl_fun.dir/main.cpp.i
+CMakeFiles/opengl_fun.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opengl_fun.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stepan/Документы/cpp/opengl-fun/src/main.cpp > CMakeFiles/opengl_fun.dir/src/main.cpp.i
 
-CMakeFiles/opengl_fun.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_fun.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stepan/Документы/cpp/opengl-fun/main.cpp -o CMakeFiles/opengl_fun.dir/main.cpp.s
+CMakeFiles/opengl_fun.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opengl_fun.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stepan/Документы/cpp/opengl-fun/src/main.cpp -o CMakeFiles/opengl_fun.dir/src/main.cpp.s
 
 # Object files for target opengl_fun
 opengl_fun_OBJECTS = \
-"CMakeFiles/opengl_fun.dir/main.cpp.o"
+"CMakeFiles/opengl_fun.dir/src/main.cpp.o"
 
 # External object files for target opengl_fun
 opengl_fun_EXTERNAL_OBJECTS =
 
-opengl_fun: CMakeFiles/opengl_fun.dir/main.cpp.o
+opengl_fun: CMakeFiles/opengl_fun.dir/src/main.cpp.o
 opengl_fun: CMakeFiles/opengl_fun.dir/build.make
 opengl_fun: CMakeFiles/opengl_fun.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/stepan/Документы/cpp/opengl-fun/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable opengl_fun"
