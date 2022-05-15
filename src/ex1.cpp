@@ -49,7 +49,7 @@ static unsigned int create_shader(const std::string& vertex_shader, const std::s
 }
 
 void process_input(GLFWwindow* win) {
-    if(glfwGetKey(win, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    if(glfwGetKey(win, GLFW_KEY_Q) == GLFW_PRESS)
 	glfwSetWindowShouldClose(win, true);
 }
 
@@ -58,6 +58,23 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+
+struct Triangle {
+    unsigned int vertarr, vertbuff;
+    Triangle(float points[9]) {
+	// Generating the vertex arrays and buffers and binding them
+	glGenBuffers(1, &vertbuff);
+	glGenVertexArrays(1, &vertarr);
+	glBindVertexArray(vertarr);
+	glBindBuffer(GL_ARRAY_BUFFER, vertbuff);
+	// Setting the data
+	glBufferData(GL_ARRAY_BUFFER, sizeof(*(points)), points, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+	glEnableVertexAttribArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+    }
+};
 
 
 int main () {
@@ -85,26 +102,17 @@ int main () {
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    float verticies[] = {
+    float vert0[] = {
 	-0.5f,  -0.25f, 0.0f,
         -0.25f,  -0.25f, 0.0f,
         -0.375f, 0.25f, 0.0f,
+    };
 
+    float vert1[] = {
 	0.5f,  -0.25f, 0.0f,
         0.25f, -0.25f, 0.0f,
         0.375f, 0.25f, 0.0f
-
-	 
     };
-
-
-    unsigned int vertbuff, vertarr;
-    glGenBuffers(1, &vertbuff);
-    glGenVertexArrays(1, &vertarr);
-    glBindVertexArray(vertarr);
-
-    glBindBuffer(GL_ARRAY_BUFFER, vertbuff);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
 
     std::string vertshadertext = "#version 330 core\n"
 	"layout (location = 0) in vec3 mPos;\n"
@@ -119,12 +127,9 @@ int main () {
 	"}\0";
 
     unsigned int prog = create_shader(vertshadertext, fragshadertext);
+    Triangle t1(vert0);
+    Triangle t2(vert1);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
 
     std::cout << glGetString(GL_VERSION) << std::endl;
     while(!glfwWindowShouldClose(window))
@@ -135,7 +140,10 @@ int main () {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glUseProgram(prog);
-	glBindVertexArray(vertarr);
+	glBindVertexArray(t1.vertarr);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+
+	glBindVertexArray(t2.vertarr);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	
 	glfwPollEvents();
