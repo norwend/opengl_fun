@@ -71,16 +71,18 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 struct Triangle {
     unsigned int VAO, VBO;
-    Triangle(float vertices[9]) {
+    Triangle(float vertices[18]) {
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	glBindVertexArray(VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, 36, vertices, GL_STATIC_DRAW); // TODO: Remove hardcoded "36".
+	glBufferData(GL_ARRAY_BUFFER, 18 * sizeof(float), vertices, GL_STATIC_DRAW); 
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0); 
 
@@ -130,9 +132,9 @@ int main () {
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     float vert0[] = {
-	-0.5f, -0.5f, 0.0f,
-         0.5f,  -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
+	-0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f,
+	0.5f, -0.5f,  0.0f, 0.0f, 1.0f, 0.0f,
+	0.0f,  0.5f,  0.0f, 0.0f, 0.0f, 1.0f,
     };
 
     auto vsh = read_file("shaders/test.vert");
@@ -151,13 +153,11 @@ int main () {
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	float timevalue = glfwGetTime();
-	float value = std::sin(timevalue);
-
-	int vertcolorlocation = glGetUniformLocation(prog, "ourColor");
-
 	glUseProgram(prog);
 
+	float timevalue = glfwGetTime();
+	float value = std::sin(timevalue);
+	int vertcolorlocation = glGetUniformLocation(prog, "ourColor");
 	glUniform4f(vertcolorlocation, (value / 2.0f) + 0.5f, value, 1-value, 1.0f);
 	
 	glBindVertexArray(t1.VAO);
