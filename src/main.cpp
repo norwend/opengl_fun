@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
+#include <cmath>
 
 #define W_WIDTH 1280
 #define W_HEIGHT 720
@@ -91,6 +93,16 @@ struct Triangle {
     }
 };
 
+std::string read_file(const std::string& path) {
+    std::ifstream input_file(path);
+    if (!input_file.is_open()) {
+	std::cout << "Could not open the file - '"
+		  << path << "'" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    return std::string((std::istreambuf_iterator<char>(input_file)), std::istreambuf_iterator<char>());
+}
+
 
 int main () {
     glfwInit();
@@ -118,39 +130,17 @@ int main () {
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     float vert0[] = {
-	-0.5f,  -0.25f, 0.0f,
-        -0.25f,  -0.25f, 0.0f,
-        -0.375f, 0.25f, 0.0f
+	-0.5f, -0.5f, 0.0f,
+         0.5f,  -0.5f, 0.0f,
+         0.0f,  0.5f, 0.0f
     };
 
-    float vert1[] = {
-	0.5f,  -0.25f, 0.0f,
-        0.25f, -0.25f, 0.0f,
-        0.375f, 0.25f, 0.0f
-    };
+    auto vsh = read_file("shaders/test.vert");
+    auto fsh = read_file("shaders/test.frag");
 
-    std::string vsh = "#version 330 core\n"
-	"layout (location = 0) in vec3 mPos;\n"
-	"void main() {\n"
-	"    gl_Position = vec4(mPos.xyz, 1.0f);\n"
-	"}\0";
-
-    std::string fsh = "#version 330 core\n"
-	"out vec4 color;\n"
-	"void main() {\n"
-	"    color = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-	"}\0";
-
-    std::string fsh2 = "#version 330 core\n"
-	"out vec4 color;\n"
-	"void main() {\n"
-	"    color = vec4(1.0f, 1.0f, 0.0f, 1.0f);\n"
-	"}\0";
 
     unsigned int prog = create_shader(vsh, fsh);
-    unsigned int prog2 = create_shader(vsh, fsh2);
     Triangle t1(vert0);
-    Triangle t2(vert1);
 
 
     std::cout << glGetString(GL_VERSION) << std::endl;
@@ -161,14 +151,18 @@ int main () {
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	float timevalue = glfwGetTime();
+	float value = std::sin(timevalue);
+
+	int vertcolorlocation = glGetUniformLocation(prog, "ourColor");
+
 	glUseProgram(prog);
+
+	glUniform4f(vertcolorlocation, (value / 2.0f) + 0.5f, value, 1-value, 1.0f);
+	
 	glBindVertexArray(t1.VAO);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
-	glUseProgram(prog2);
-	glBindVertexArray(t2.VAO);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-	
 	glfwSwapBuffers(window);
 	glfwPollEvents();
     }
